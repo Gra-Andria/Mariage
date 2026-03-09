@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: #f5f2ee;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    flex: 1;
+    /* height: 90vh; */
+    /*hauteur exacte de l'écran*/
+    background-image: url('images/couple.jpeg');
+    position: relative;
+    /* display: flex;
+    flex-direction: column; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 0 0 30px 0;
+    /* border-radius: 0 0 85% 85% / 8%; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    color: white;
+    /* background: rgba(0, 0, 0, 0.2); */
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 36px;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: 0.6s ease;
+}
+
+.container .keyboard-open {
+    top: 10%;
+    transform: translateX(-50%);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(1px);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 22px;
+    padding: 6px;
+}
+
+.search-box i.fa-search {
+    margin-left: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    width: 260px;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.search-box button {
+    border: none;
+    padding: 10px 25px;
+    border-radius: 15px;
+    background: #1e2a78;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #2c3dc9;
+}
+
+footer {
+
+    background: #f5f2ee;
+    padding: 20px 30px;
+    flex-shrink: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right {
+    /* margin-top: 40px; */
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    opacity: 0.8;
+}
+
+/* .footer-content a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+} */
+
+#suggestions {
+    background: rgba(255, 255, 255, 0.542);
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.suggestion-item:hover {
+    background: #f0f0f0;
+}
+
+.container.move-up {
+    top: 120px;
+    transform: translateX(-50%);
+}
+
+.result-card {
+    width: 750px;
+    max-width: 90vw;
+
+    margin-top: 30px;
+    padding: 40px 60px;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.693);
+    backdrop-filter: blur(2px);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    text-align: center;
+    color: #1e2a78;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s cubic-bezier(.22, 1, .36, 1);
+}
+
+.result-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Nom invité */
+.result-card h2 {
+    font-family: 'Times new roman';
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: #1e2a78;
+}
+
+/* Texte "Table" */
+.result-card p {
+    font-family: 'Pinyon Script', cursive;
+    font-weight: bold;
+    font-size: 60px;
+    /* margin-bottom: 5px; */
+    margin-top: 25px;
+    letter-spacing: 2px;
+}
+
+/* .developer-signature {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    opacity: 0.8;
+} */
+
+/* Numéro de table */
+/* .table-number {
+    font-family: 'Pinyon Script', cursive;
+    font-weight: bolder;
+    font-size: 60px;
+    margin-top: 5px;
+} */
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 48px;
+    }
+
+    nav a {
+        margin-left: 0px;
+        margin: 10px;
+        gap: 20px;
+    }
+
+    .search-box input {
+        width: 180px;
+    }
+
+    .result-card {
+        padding: 25px;
+        margin-top: 30px;
+    }
+
+    .result-card h2 {
+        font-size: 24px;
+    }
+
+    .table-number {
+        font-size: 40px;
+    }
+
+    .container.move-up {
+        top: 160px;
+    }
+
+    .result-card {
+        margin-top: 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 7px;
+        text-align: center;
+    }
+
+    .right {
+        font-size: 11px;
+    }
+}
