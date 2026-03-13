@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    overflow: hidden;
+    background-image: url(images/couple.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.programme {
+    flex: 1;
+    font-family: 'Montserrat', sans-serif;
+    color: #222222;
+    /* background-image: url('images/image.png'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding-block: 20px;
+    background: rgba(255, 254, 254, 0.35);
+    backdrop-filter: blur(7px);
+
+}
+
+.titre {
+    text-align: center;
+}
+
+.titre h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #6e4720;
+    /* margin-bottom: 0.5em; */
+    font-weight: bold;
+}
+
+.titre h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #6e4720;
+    /* margin-bottom: 2em; */
+    font-weight: normal;
+}
+
+.timeline {
+    position: relative;
+    /* width: 100%;
+    max-width: 500px; */
+    width: min(500px, 90%);
+    margin: auto;
+    padding-block: 10px;
+    /* padding-inline: 1cm; */
+    margin-block: 10px;
+}
+
+/* ligne verticale */
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: black;
+}
+
+/* points */
+
+.timeline::after,
+.end-point {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: black;
+    border-radius: 50%;
+}
+
+.timeline::after {
+    top: 0;
+}
+
+.end-point {
+    bottom: 0;
+}
+
+/* ITEM */
+
+.timeline-item {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 45px 1fr;
+
+    margin: 20px 0;
+    align-items: center;
+}
+
+
+
+/* POSITIONNEMENT */
+
+.timeline-item.left .content {
+    grid-column: 1;
+    text-align: center;
+}
+
+.timeline-item.left .icon {
+    grid-column: 3;
+    text-align: left;
+}
+
+.timeline-item.right .content {
+    grid-column: 3;
+    text-align: center;
+}
+
+.timeline-item.right .icon {
+    grid-column: 1;
+    text-align: right;
+}
+
+/* CONTENU */
+
+.content {
+    width: 100%;
+}
+
+.content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #030303;
+    font-weight: 900;
+}
+
+.content p {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #000000;
+}
+
+/* ICONE */
+
+.icon img {
+    width: 60px;
+    height: auto;
+}
+
+/* LIGNE HORIZONTALE */
+
+.line-with-time {
+    position: relative;
+    height: 2px;
+    background: black;
+    margin: 5px 0;
+}
+
+/* EXTENSION POUR TOUCHER LA LIGNE VERTICALE */
+
+.timeline-item.left .line-with-time {
+    width: calc(100% + 24px);
+    margin-right: 0%;
+}
+
+.timeline-item.right .line-with-time {
+    width: calc(100% + 25px);
+    margin-left: -10%;
+}
+
+/* HEURE */
+
+.time {
+    position: absolute;
+    top: -9px;
+    font-weight: bold;
+    font-size: 14px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #222222;
+}
+
+/* POSITION HEURE */
+
+.timeline-item.left .time {
+    left: -55px;
+}
+
+.timeline-item.right .time {
+    right: -55px;
+}
+
+/* RESPONSIVE  */
+@media (max-width: 809px) {
+    .logo {
+        display: none;
+    }
+
+    .programme {
+        padding-block: 20px;
+    }
+
+    .timeline {
+        width: 90%;
+        max-width: 300px;
+        /* width: 300px; */
+        margin-block: 30px;
+        padding-inline: 1cm;
+    }
+
+    .timeline-item {
+        margin: 20px 0;
+        grid-template-columns: 1fr 30px 1fr;
+        align-items: center;
+    }
+
+    /* Lignes horizontales */
+    .timeline-item.left .line-with-time {
+        width: calc(100% + 16px);
+        margin-right: 0%;
+    }
+
+    .timeline-item.right .line-with-time {
+        width: calc(100% + 19px);
+        margin-left: -15%;
+    }
+
+    /* Icônes */
+    .icon img {
+        width: 50px;
+    }
+
+    /* Heure */
+    .timeline-item.left .time {
+        left: -50px;
+        font-size: 0.9rem;
+    }
+
+    .timeline-item.right .time {
+        right: -50px;
+        font-size: 0.9rem;
+    }
+
+    /* Titres */
+    .titre h1 {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .titre h2 {
+        font-size: 0.7rem;
+        margin-bottom: 2em;
+    }
+
+    .content h3 {
+        font-size: 0.8rem;
+    }
+
+    .content p {
+        font-size: 0.6rem;
+    }
+}

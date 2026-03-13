@@ -12,6 +12,20 @@ body {
 
     display: flex;
     flex-direction: column;
+
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .hero {
